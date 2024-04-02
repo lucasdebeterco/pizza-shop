@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
+    darkMode: ['class'],
     content: [
         './index.html',
         './src/**/*.{js,ts,jsx,tsx}',
@@ -17,7 +18,6 @@ export default {
             colors: {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
-                lowlight: 'hsl(var(--lowlight))',
                 ring: 'hsl(var(--ring))',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
@@ -55,14 +55,6 @@ export default {
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
             },
-            backgroundImage: ({ theme }) => ({
-                stripes: `repeating-linear-gradient(-45deg, transparent, transparent 1rem, ${theme(
-                    'colors.lowlight',
-                )} 1rem, ${theme('colors.lowlight')} 2rem)`,
-            }),
-            backgroundSize: {
-                stripes: '200% 200%',
-            },
             keyframes: {
                 'accordion-down': {
                     from: { height: '0' },
@@ -72,14 +64,10 @@ export default {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' },
                 },
-                stripes: {
-                    to: { backgroundPosition: '100% 100%' },
-                },
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                stripes: 'stripes 60s linear infinite',
             },
         },
     },
