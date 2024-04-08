@@ -1,5 +1,6 @@
 import { Moon, Sun } from 'lucide-react'
 
+import { AccountMenu } from '@/components/account-menu.tsx'
 import { Button } from '@/components/ui/button'
 import {
     DropdownMenu,
@@ -33,6 +34,8 @@ export function ThemeToogle() {
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>
+
+            <AccountMenu />
         </DropdownMenu>
     )
 }
