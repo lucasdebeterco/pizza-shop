@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react'
+import { ArrowRight, ArrowUp, Search, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 import { Button } from '@/components/ui/button.tsx'
@@ -25,29 +25,57 @@ export function Orders() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>Identificador</TableHead>
-                                <TableHead>Realizado há</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead>Total do pedido</TableHead>
-                                <TableHead></TableHead>
-                                <TableHead></TableHead>
+                                <TableHead className="w-[64px]"></TableHead>
+                                <TableHead className="w-[140px]">Identificador</TableHead>
+                                <TableHead className="w-[180px]">Realizado há</TableHead>
+                                <TableHead className="w-[140px]">Status</TableHead>
+                                <TableHead>Cliente</TableHead>
+                                <TableHead className="w-[140px]">Total do pedido</TableHead>
+                                <TableHead className="w-[164px]"></TableHead>
+                                <TableHead className="w-[132[x]"></TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            <TableRow>
-                                <TableCell>
-                                    <Button variant="outline" size="xs">
-                                        <Search className="size-3" />
-                                        <span className="sr-only">Detalhes do pedido</span>
-                                    </Button>
-                                </TableCell>
-                                <TableCell></TableCell>
-                                <TableCell></TableCell>
-                                <TableCell></TableCell>
-                                <TableCell></TableCell>
-                                <TableCell></TableCell>
-                                <TableCell></TableCell>
-                            </TableRow>
+                            {Array.from({length: 10}).map((_, i) => {
+                                return (
+                                    <TableRow key={i}>
+                                        <TableCell>
+                                            <Button variant="outline" size="xs">
+                                                <Search className="size-3" />
+                                                <span className="sr-only">Detalhes do pedido</span>
+                                            </Button>
+                                        </TableCell>
+                                        <TableCell className="font-mono text-xs font-medium">
+                                            c6ds78v9f6d78csjklhghjgf
+                                        </TableCell>
+                                        <TableCell className="text-muted-foreground">
+                                            há 15 minutos
+                                        </TableCell>
+                                        <TableCell className="flex items-center gap-2">
+                                            <span className="size-2 rounded-full bg-slate-400"></span>
+                                            <span className="font-medium text-muted-foreground">Pendente</span>
+                                        </TableCell>
+                                        <TableCell className="font-medium">
+                                            Lucas Debeterco
+                                        </TableCell>
+                                        <TableCell className="font-medium">
+                                            R$ 149,90
+                                        </TableCell>
+                                        <TableCell>
+                                            <Button variant="outline" size="xs">
+                                                <ArrowRight className="mr-2 size-3" />
+                                                Aprovar
+                                            </Button>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Button variant="ghost" size="xs">
+                                                <X className="mr-2 size-3" />
+                                                Cancelar
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })}
                         </TableBody>
                     </Table>
                 </div>
