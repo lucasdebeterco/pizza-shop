@@ -1,16 +1,23 @@
 import { ArrowRight, Search, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button.tsx'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog.tsx'
 import { TableCell, TableRow } from '@/components/ui/table.tsx'
+import { OrderDetails } from '@/pages/app/orders/order-details.tsx'
 
 export function OrderTableRow() {
     return (
         <TableRow>
             <TableCell>
-                <Button variant="outline" size="xs">
-                    <Search className="size-3" />
-                    <span className="sr-only">Detalhes do pedido</span>
-                </Button>
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Button variant="outline" size="xs">
+                            <Search className="size-3" />
+                            <span className="sr-only">Detalhes do pedido</span>
+                        </Button>
+                    </DialogTrigger>
+                    <OrderDetails />
+                </Dialog>
             </TableCell>
             <TableCell className="font-mono text-xs font-medium">
                 c6ds78v9f6d78csjklhghjgf
