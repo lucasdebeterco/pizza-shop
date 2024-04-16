@@ -1,7 +1,7 @@
 import { DialogTitle } from '@radix-ui/react-dialog'
 
 import { DialogContent, DialogDescription, DialogHeader } from '@/components/ui/dialog.tsx'
-import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table.tsx'
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx'
 
 export function OrderDetails() {
     return (
@@ -48,6 +48,39 @@ export function OrderDetails() {
                             </TableCell>
                         </TableRow>
                     </TableBody>
+                </Table>
+
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Produto</TableHead>
+                            <TableHead className="text-right">Qtd.</TableHead>
+                            <TableHead className="text-right">Preço</TableHead>
+                            <TableHead className="text-right">Subtotal</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>Pizza Frango com Catupiry</TableCell>
+                            <TableCell className="text-right">2</TableCell>
+                            <TableCell className="text-right">R$ 69,98</TableCell>
+                            <TableCell className="text-right">R$ 139,88</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>Pizza Frango com Catupiry</TableCell>
+                            <TableCell className="text-right">2</TableCell>
+                            <TableCell className="text-right">R$ 69,98</TableCell>
+                            <TableCell className="text-right">R$ 139,88</TableCell>
+                        </TableRow>
+                    </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TableCell colSpan={3}>Total do pedido</TableCell>
+                            <TableCell className="text-right font-medium">
+                                R$ 139,88
+                            </TableCell>
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             </div>
         </DialogContent>
