@@ -1,7 +1,7 @@
 import { ArrowRight, Search, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button.tsx'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog.tsx'
+import { Dialog, DialogTrigger } from '@/components/ui/dialog.tsx'
 import { TableCell, TableRow } from '@/components/ui/table.tsx'
 import { OrderDetails } from '@/pages/app/orders/order-details.tsx'
 
