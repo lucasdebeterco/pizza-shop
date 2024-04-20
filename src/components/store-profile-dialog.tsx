@@ -18,7 +18,8 @@ export function StoreProfileDialog() {
         data: managedRestaurant
     } = useQuery({
         queryKey: ['managed-restaurant'],
-        queryFn: getManagedRestaurant
+        queryFn: getManagedRestaurant,
+        staleTime: Infinity
     })
 
     const storeProfileSchema = z.object({
