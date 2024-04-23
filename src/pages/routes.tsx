@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { AppLayout } from '@/pages/_layouts/App.tsx'
 import { AuthLayout } from '@/pages/_layouts/Auth.tsx'
+import { NotFound } from '@/pages/404.tsx'
 import { Dashboard } from '@/pages/app/dashboard/dashboard.tsx'
 import { Orders } from '@/pages/app/orders/orders.tsx'
 import { SignIn } from '@/pages/auth/sign-in.tsx'
@@ -10,6 +11,7 @@ import { SignUp } from '@/pages/auth/sign-up.tsx'
 export const router = createBrowserRouter([{
     path: '/',
     element: <AppLayout/>,
+    errorElement: <NotFound />,
     children: [{
         path: '/',
         element: <Dashboard />
