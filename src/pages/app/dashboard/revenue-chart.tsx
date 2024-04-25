@@ -8,6 +8,8 @@ import {
 } from 'recharts'
 import colors from 'tailwindcss/colors'
 
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+
 const data = [
     {date: '10/12', revenue: 1200},
     {date: '11/12', revenue: 200},
@@ -18,7 +20,6 @@ const data = [
     {date: '16/12', revenue: 300}
 ]
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
 export function RevenueChart() {
     return (
         <Card className="col-span-6">

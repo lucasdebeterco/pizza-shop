@@ -4,6 +4,7 @@ import { DayOrdersAmountCard } from '@/pages/app/dashboard/day-orders-amount-car
 import { MonthCanceledOrdersAmountCard } from '@/pages/app/dashboard/month-canceled-orders-amount-card.tsx'
 import { MonthOrdersAmountCard } from '@/pages/app/dashboard/month-orders-amount-card.tsx'
 import { MonthRevenueCard } from '@/pages/app/dashboard/month-revenue-card.tsx'
+import { PopularProductsChart } from '@/pages/app/dashboard/pupular-products-chart.tsx'
 import { RevenueChart } from '@/pages/app/dashboard/revenue-chart.tsx'
 
 export function Dashboard() {
@@ -22,6 +23,7 @@ export function Dashboard() {
 
                 <div className="grid grid-cols-9 gap-4">
                     <RevenueChart />
+                    <PopularProductsChart />
                 </div>
             </div>
         </>
