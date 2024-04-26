@@ -41,7 +41,7 @@ export function SignUp() {
             toast.success('Restaurante cadastrado com sucesso!', {
                 action: {
                     label: 'Login',
-                    onClick: () => navigate('/sign-in')
+                    onClick: () => navigate(`/sign-in?email=${data.email}`)
                 }
             })
         } catch {
@@ -85,7 +85,7 @@ export function SignUp() {
                             <Label htmlFor="email">Seu e-mail</Label>
                             <Input id="email" type="email" {...register('email')} />
                         </div>
-                        <Button disabled={isSubmitting} className="w-full" type="submit">Acessar painel</Button>
+                        <Button disabled={isSubmitting} className="w-full" type="submit">Finalizar cadastro</Button>
 
                         <p className="px-6 text-center text-sm leading-relaxed text-muted-foreground">
                             Ao continuar, você concorda com nossos <a className="underline underline-offset-4">termos de serviço</a> e <a className="underline underline-offset-4">políticas de privacidade</a>
