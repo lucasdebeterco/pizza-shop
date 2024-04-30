@@ -21,9 +21,13 @@ type SignUpForm = z.infer<typeof signUpForm>
 
 export function SignUp() {
     const navigate = useNavigate()
-    const { register, handleSubmit, formState: {
-        isSubmitting
-    }} = useForm<SignUpForm>()
+    const {
+        register,
+        handleSubmit,
+        formState: {
+            isSubmitting
+        }
+    } = useForm<SignUpForm>()
 
     const { mutateAsync: registerRestaurantFn } = useMutation({
         mutationFn: registerRestaurant
