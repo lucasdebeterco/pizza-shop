@@ -7,15 +7,22 @@ import { Button } from '@/components/ui/button.tsx'
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu.tsx'
+import { Skeleton } from '@/components/ui/skeleton.tsx'
 
 export function AccountMenu() {
 
-    const { data: profile } = useQuery({
+    const {
+        data: profile,
+        isLoading: isLoadingProfile
+    } = useQuery({
         queryKey: ['profile'],
         queryFn: getProfile
     })
 
-    const { data: managedRestaurant } = useQuery({
+    const {
+        data: managedRestaurant,
+        isLoading: isLoadingManagedRestaurant
+    } = useQuery({
         queryKey: ['managed-restaurant'],
         queryFn: getManagedRestaurant
     })
@@ -24,16 +31,25 @@ export function AccountMenu() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="flex select-none items-center gap-2">
-                    {managedRestaurant?.name}
+                    {isLoadingManagedRestaurant ? <Skeleton className="h-4 w-40" /> : managedRestaurant?.name}
                     <ChevronDown />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuLabel className="flex flex-col">
-                    <span>{profile?.name}</span>
-                    <span className="text-xs font-normal text-muted-foreground">{profile?.email}</span>
+                    {isLoadingProfile ? (
+                        <div className="space-y-1.5">
+                            <Skeleton className="h-4 w-32" />
+                            <Skeleton className="h-3 w-24" />
+                        </div>
+                    ) : (
+                        <>
+                            <span>{profile?.name}</span>
+                            <span className="text-xs font-normal text-muted-foreground">{profile?.email}</span>
+                        </>
+                    )}
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
                 <DropdownMenuItem>
                     <Building className="mr-2 size-4" />
                     <span>Perfil da loja</span>
