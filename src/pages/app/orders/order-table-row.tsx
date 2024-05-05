@@ -1,11 +1,24 @@
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import { ArrowRight, Search, X } from 'lucide-react'
 
+import { OrderStatus } from '@/components/OrderStatus.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog.tsx'
 import { TableCell, TableRow } from '@/components/ui/table.tsx'
 import { OrderDetails } from '@/pages/app/orders/order-details.tsx'
 
-export function OrderTableRow() {
+export interface OrderTableRowProps {
+    order: {
+        orderId: string
+        createdAt: string
+        status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
+        customerName: string
+        total: number
+    }
+}
+
+export function OrderTableRow({ order }: OrderTableRowProps) {
     return (
         <TableRow>
             <TableCell>
@@ -20,20 +33,25 @@ export function OrderTableRow() {
                 </Dialog>
             </TableCell>
             <TableCell className="font-mono text-xs font-medium">
-                c6ds78v9f6d78csjklhghjgf
+                {order.orderId}
             </TableCell>
             <TableCell className="text-muted-foreground">
-                há 15 minutos
+                {formatDistanceToNow(order.createdAt, {
+                    locale: ptBR,
+                    addSuffix: true
+                })}
             </TableCell>
-            <TableCell className="flex items-center gap-2">
-                <span className="size-2 rounded-full bg-slate-400"></span>
-                <span className="font-medium text-muted-foreground">Pendente</span>
+            <TableCell>
+                <OrderStatus status={order.status} />
             </TableCell>
             <TableCell className="font-medium">
-                Lucas Debeterco
+                {order.customerName}
             </TableCell>
             <TableCell className="font-medium">
-                R$ 149,90
+                {order.total.toLocaleString('pr-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                })}
             </TableCell>
             <TableCell>
                 <Button variant="outline" size="xs">
