@@ -3,7 +3,11 @@ import { DialogTitle } from '@radix-ui/react-dialog'
 import { DialogContent, DialogDescription, DialogHeader } from '@/components/ui/dialog.tsx'
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx'
 
-export function OrderDetails() {
+interface OrderDetailsProps {
+    orderId: string
+}
+
+export function OrderDetails({ orderId }: OrderDetailsProps) {
     return (
         <DialogContent>
             <DialogHeader>
