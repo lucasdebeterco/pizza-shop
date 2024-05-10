@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 const orderFilterSchema = z.object({
     orderId: z.string().optional(),
-    custumerName: z.string().optional(),
+    customerName: z.string().optional(),
     status: z.string().optional()
 })
 
@@ -20,7 +20,7 @@ export function OrderTableFilters() {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const orderId = searchParams.get('orderId') ?? ''
-    const custumerName = searchParams.get('custumerName') ?? ''
+    const customerName = searchParams.get('customerName') ?? ''
     const status = searchParams.get('status') ?? 'all'
 
     const {
@@ -31,12 +31,12 @@ export function OrderTableFilters() {
         resolver: zodResolver(orderFilterSchema),
         defaultValues: {
             orderId,
-            custumerName,
+            customerName,
             status
         }
     })
 
-    function handleFilter({ orderId, custumerName, status }: OrderFiltersSchema) {
+    function handleFilter({ orderId, customerName, status }: OrderFiltersSchema) {
         setSearchParams(state => {
             if (orderId) {
                 state.set('orderId', orderId)
@@ -44,10 +44,10 @@ export function OrderTableFilters() {
                 state.delete('orderId')
             }
 
-            if (custumerName) {
-                state.set('custumerName', custumerName)
+            if (customerName) {
+                state.set('customerName', customerName)
             } else {
-                state.delete('custumerName')
+                state.delete('customerName')
             }
 
             if (status) {
@@ -75,7 +75,7 @@ export function OrderTableFilters() {
             <Input
                 placeholder="Nome do cliente"
                 className="h-8 w-[320px]"
-                {...register('custumerName')}
+                {...register('customerName')}
             />
 
             <Controller
