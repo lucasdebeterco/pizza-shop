@@ -26,7 +26,8 @@ export function OrderTableFilters() {
     const {
         register,
         handleSubmit,
-        control
+        control,
+        reset
     } = useForm<OrderFiltersSchema>({
         resolver: zodResolver(orderFilterSchema),
         defaultValues: {
@@ -62,6 +63,22 @@ export function OrderTableFilters() {
         })
     }
 
+    function handleClearFilters() {
+        setSearchParams(state => {
+            state.delete('orderId')
+            state.delete('customerName')
+            state.delete('status')
+            state.set('page', '1')
+
+            return state
+        })
+
+        reset({
+            orderId: '',
+            customerName: '',
+            status: 'all'
+        })
+    }
     return (
         <form onSubmit={handleSubmit(handleFilter)} className="flex items-center gap-2">
             <span className="text-sm font-semibold">
@@ -118,7 +135,7 @@ export function OrderTableFilters() {
                 Filtrar resultados
             </Button>
 
-            <Button type="button" variant="outline" size="sm">
+            <Button onClick={handleClearFilters} type="button" variant="outline" size="sm">
                 <X className="mr-2 size-4" />
                 Remover Filtros
             </Button>
