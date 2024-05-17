@@ -3,6 +3,7 @@ import { DollarSign } from 'lucide-react'
 
 import { getDayOrdersAmount } from '@/api/get-day-orders-amount.ts'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+import { MetricCardSkeleton } from '@/pages/app/dashboard/metric-card-skeleton.tsx'
 
 export function DayOrdersAmountCard() {
     const { data: dayOrdersAmount } = useQuery({
@@ -19,7 +20,7 @@ export function DayOrdersAmountCard() {
                 <DollarSign className="size-4 text-muted-foreground" />
             </CardHeader>
             <CardContent className="space-y-1">
-                {dayOrdersAmount && (
+                {dayOrdersAmount ? (
                     <>
                         <span className="text-2xl font-bold tracking-tight">
                             {dayOrdersAmount.amount.toLocaleString('pr-BR')}
@@ -38,6 +39,8 @@ export function DayOrdersAmountCard() {
                             )}
                         </p>
                     </>
+                ) : (
+                    <MetricCardSkeleton />
                 )}
             </CardContent>
         </Card>)
