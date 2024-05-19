@@ -7,6 +7,7 @@ import { getOrderDetails } from '@/api/get-order-details.ts'
 import { OrderStatus } from '@/components/OrderStatus.tsx'
 import { DialogContent, DialogDescription, DialogHeader } from '@/components/ui/dialog.tsx'
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx'
+import { OrderDetailsSkeleton } from '@/pages/app/orders/order-details-skeleton.tsx'
 
 interface OrderDetailsProps {
     orderId: string
@@ -28,8 +29,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                 <DialogDescription>Detalhes do pedido</DialogDescription>
             </DialogHeader>
 
-
-            {order && (
+            {order ? (
                 <div className="space-y-6">
                     <Table>
                         <TableBody>
@@ -109,6 +109,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                         </TableFooter>
                     </Table>
                 </div>
+            ) : (
+                <OrderDetailsSkeleton />
             )}
         </DialogContent>
     )
