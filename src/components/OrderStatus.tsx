@@ -17,7 +17,7 @@ const orderStatusMap: Record<OrderStatus, string> = {
 export function OrderStatus({ status }: OrderStatusProps) {
     return(
         <div className="flex items-center gap-2">
-            <span className={cn(
+            <span data-testid="badge" className={cn(
                 'size-2 rounded-full',
                 status === 'pending' && 'bg-slate-400',
                 status === 'canceled' && 'bg-rose-500',
