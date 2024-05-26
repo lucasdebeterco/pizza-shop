@@ -4,7 +4,7 @@ import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
 import { getOrderDetails } from '@/api/get-order-details.ts'
-import { OrderStatus } from '@/components/OrderStatus.tsx'
+import { OrderStatus } from '@/components/order-status.tsx'
 import { DialogContent, DialogDescription, DialogHeader } from '@/components/ui/dialog.tsx'
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx'
 import { OrderDetailsSkeleton } from '@/pages/app/orders/order-details-skeleton.tsx'

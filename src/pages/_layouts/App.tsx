@@ -2,7 +2,7 @@ import { isAxiosError } from 'axios'
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
-import { Header } from '@/components/Header.tsx'
+import { Header } from '@/components/header.tsx'
 import { api } from '@/lib/axios.ts'
 
 export function AppLayout() {

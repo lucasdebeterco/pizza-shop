@@ -1,6 +1,6 @@
 import { Home, Pizza, UtensilsCrossed } from 'lucide-react'
 
-import { NavLink } from '@/components/NavLink.tsx'
+import { NavLink } from '@/components/nav-link.tsx'
 import { ThemeToogle } from '@/components/theme/theme-toogle.tsx'
 import { Separator } from '@/components/ui/separator.tsx'
 

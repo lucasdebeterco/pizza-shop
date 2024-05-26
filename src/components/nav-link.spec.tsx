@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { expect } from 'vitest'
 
-import { NavLink } from '@/components/NavLink.tsx'
+import { NavLink } from '@/components/nav-link.tsx'
 
 describe('NavLink', () => {
     it('Should highlight the nav link when is the current page link', () => {

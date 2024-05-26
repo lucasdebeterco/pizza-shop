@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { describe, expect } from 'vitest'
 
-import { OrderStatus } from '@/components/OrderStatus.tsx'
+import { OrderStatus } from '@/components/order-status.tsx'
 
 describe('Order Status', () => {
     it('should display the right text when order status is pending', () => {
