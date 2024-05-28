@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios.ts'
 
-interface ApproveOrderProps {
+export interface ApproveOrderProps {
     orderId: string;
 }
 

@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios.ts'
 
-interface DeliverOrderProps {
+export interface DeliverOrderProps {
     orderId: string;
 }
 
