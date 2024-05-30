@@ -7,8 +7,8 @@ test('sing in successfully', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Access dashboard' }).click()
 
-    const toast = page.getByText('We send an authentication link to your email.')
-    expect(toast).toBeVisible()
+    const toast = await page.getByText('We send an authentication link to your email.')
+    await expect(toast).toBeVisible()
 })
 
 test('sing in with wrong credentials', async ({ page }) => {
@@ -18,8 +18,8 @@ test('sing in with wrong credentials', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Access dashboard' }).click()
 
-    const toast = page.getByText('Invalid credentials.')
-    expect(toast).toBeVisible()
+    const toast = await page.getByText('Invalid credentials.')
+    await expect(toast).toBeVisible()
 })
 
 test('nevigate to new restaurant page', async ({ page }) => {

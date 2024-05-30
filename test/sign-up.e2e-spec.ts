@@ -10,8 +10,8 @@ test('sing up successfully', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Finalizar cadastro' }).click()
 
-    const toast = page.getByText('Restaurante cadastrado com sucesso!')
-    expect(toast).toBeVisible()
+    const toast = await page.getByText('Restaurante cadastrado com sucesso!')
+    await expect(toast).toBeVisible()
 })
 
 test('sing up with error', async ({ page }) => {
@@ -24,8 +24,8 @@ test('sing up with error', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Finalizar cadastro' }).click()
 
-    const toast = page.getByText('Erro ao cadastrar restaurante.')
-    expect(toast).toBeVisible()
+    const toast = await page.getByText('Erro ao cadastrar restaurante.')
+    await expect(toast).toBeVisible()
 })
 
 test('nevigate to login page', async ({ page }) => {
