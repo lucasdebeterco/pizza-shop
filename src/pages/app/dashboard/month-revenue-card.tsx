@@ -3,6 +3,7 @@ import { DollarSign } from 'lucide-react'
 
 import { getMonthRevenue } from '@/api/get-month-revenue.ts'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+import { priceFormatter } from '@/lib/priceFormatter'
 import { MetricCardSkeleton } from '@/pages/app/dashboard/metric-card-skeleton.tsx'
 
 export function MonthRevenueCard() {
@@ -23,10 +24,7 @@ export function MonthRevenueCard() {
                 {monthRevenue ? (
                     <>
                         <span className="text-2xl font-bold tracking-tight">
-                            {(monthRevenue.receipt / 100).toLocaleString('en-US', {
-                                style: 'currency',
-                                currency: 'USD',
-                            })}
+                            {priceFormatter.format(monthRevenue.receipt / 100)}
                         </span>
                         <p className="text-xs text-muted-foreground">
                             {monthRevenue.diffFromLastMonth >= 0 ? (

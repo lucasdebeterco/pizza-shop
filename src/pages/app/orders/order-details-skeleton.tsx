@@ -11,13 +11,13 @@ export function OrderDetailsSkeleton() {
                         <Skeleton className="h-5 w-20" />
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-muted-foreground">Cliente</TableCell>
+                        <TableCell className="text-muted-foreground">Customer</TableCell>
                         <TableCell className="flex justify-end">
                             <Skeleton className="h-5 w-[164px]" />
                         </TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-muted-foreground">Telefone</TableCell>
+                        <TableCell className="text-muted-foreground">Phone</TableCell>
                         <TableCell className="flex justify-end">
                             <Skeleton className="h-5 w-[140px]" />
                         </TableCell>
@@ -29,7 +29,7 @@ export function OrderDetailsSkeleton() {
                         </TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-muted-foreground">Realizado há</TableCell>
+                        <TableCell className="text-muted-foreground">Created at</TableCell>
                         <TableCell className="flex justify-end">
                             <Skeleton className="h-5 w-[148px]" />
                         </TableCell>
@@ -41,8 +41,8 @@ export function OrderDetailsSkeleton() {
                 <TableHeader>
                     <TableRow>
                         <TableHead>Produto</TableHead>
-                        <TableHead className="text-right">Qtd.</TableHead>
-                        <TableHead className="text-right">Preço</TableHead>
+                        <TableHead className="text-right">Quantity</TableHead>
+                        <TableHead className="text-right">Price</TableHead>
                         <TableHead className="text-right">Subtotal</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -68,7 +68,7 @@ export function OrderDetailsSkeleton() {
                 </TableBody>
                 <TableFooter>
                     <TableRow>
-                        <TableCell colSpan={3}>Total do pedido</TableCell>
+                        <TableCell colSpan={3}>Total (order)</TableCell>
                         <TableCell className="text-right font-medium">
                             <Skeleton className="h-5 w-20" />
                         </TableCell>

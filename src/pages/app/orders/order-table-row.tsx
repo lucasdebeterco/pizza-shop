@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { formatDistanceToNow } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { enUS } from 'date-fns/locale'
 import { ArrowRight, Search, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -13,6 +13,7 @@ import { OrderStatus } from '@/components/order-status.tsx'
 import { Button } from '@/components/ui/button.tsx'
 import { Dialog, DialogTrigger } from '@/components/ui/dialog.tsx'
 import { TableCell, TableRow } from '@/components/ui/table.tsx'
+import { priceFormatter } from '@/lib/priceFormatter'
 import { queryClient } from '@/lib/react-query.ts'
 import { OrderDetails } from '@/pages/app/orders/order-details.tsx'
 
@@ -87,7 +88,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                     <DialogTrigger asChild>
                         <Button variant="outline" size="xs">
                             <Search className="size-3" />
-                            <span className="sr-only">Detalhes do pedido</span>
+                            <span className="sr-only">Order details</span>
                         </Button>
                     </DialogTrigger>
                     <OrderDetails orderId={order.orderId} open={isDetailsOpen} />
@@ -98,7 +99,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             </TableCell>
             <TableCell className="text-muted-foreground">
                 {formatDistanceToNow(order.createdAt, {
-                    locale: ptBR,
+                    locale: enUS,
                     addSuffix: true
                 })}
             </TableCell>
@@ -109,10 +110,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                 {order.customerName}
             </TableCell>
             <TableCell className="font-medium">
-                {(order.total / 100).toLocaleString('pr-BR', {
-                    style: 'currency',
-                    currency: 'USD'
-                })}
+                {priceFormatter.format(order.total / 100)}
             </TableCell>
             <TableCell>
                 {order.status === 'pending' && (
@@ -122,7 +120,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                         variant="outline"
                         size="xs">
                         <ArrowRight className="mr-2 size-3" />
-                        Aprovar
+                        Approve
                     </Button>
                 )}
 
@@ -133,7 +131,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                         variant="outline"
                         size="xs">
                         <ArrowRight className="mr-2 size-3" />
-                        Em entrega
+                        Delivering
                     </Button>
                 )}
 
@@ -144,7 +142,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                         variant="outline"
                         size="xs">
                         <ArrowRight className="mr-2 size-3" />
-                        Entregue
+                        Delivered
                     </Button>
                 )}
             </TableCell>
@@ -155,7 +153,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
                     variant="ghost"
                     size="xs">
                     <X className="mr-2 size-3" />
-                    Cancelar
+                    Cancel
                 </Button>
             </TableCell>
         </TableRow>

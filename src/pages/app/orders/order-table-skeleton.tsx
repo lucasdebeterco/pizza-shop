@@ -11,7 +11,7 @@ export function OrderTableSkeleton() {
                 <TableCell>
                     <Button disabled variant="outline" size="xs">
                         <Search className="size-3" />
-                        <span className="sr-only">Detalhes do pedido</span>
+                        <span className="sr-only">Order details</span>
                     </Button>
                 </TableCell>
                 <TableCell>
