@@ -71,7 +71,7 @@ export function AccountMenu() {
                     <DialogTrigger asChild>
                         <DropdownMenuItem>
                             <Building className="mr-2 size-4" />
-                            <span>Perfil da loja</span>
+                            <span>Store Profile</span>
                         </DropdownMenuItem>
                     </DialogTrigger>
                     <DropdownMenuItem
@@ -81,7 +81,7 @@ export function AccountMenu() {
                     >
                         <button onClick={() => signOutFn()} className="w-full" >
                             <LogOut className="mr-2 size-4" />
-                            <span>Sair</span>
+                            <span>Logout</span>
                         </button>
                     </DropdownMenuItem>
                 </DropdownMenuContent>

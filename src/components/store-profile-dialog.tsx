@@ -80,25 +80,25 @@ export function StoreProfileDialog() {
                 description: data.description,
             })
 
-            toast.success('Perfil atualizado com sucesso!')
+            toast.success('Profile updated successfully!')
         } catch {
-            toast.error('Falha ao atualizar o perfil, tente novamente!')
+            toast.error('Failed to update profile, please try again!')
         }
     }
 
     return (
         <DialogContent>
             <DialogHeader>
-                <DialogTitle>Perfil da loja</DialogTitle>
+                <DialogTitle>Store profile</DialogTitle>
                 <DialogDescription>
-                    Atualize as informações do seu estabelecimento visíveis ao seu cliente
+                    Update your store information visible to your customer
                 </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit(handleUpdateProfile)}>
                 <div className="space-y-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
-                        <Label className="text-right" htmlFor="name">Nome</Label>
+                        <Label className="text-right" htmlFor="name">Name</Label>
                         <Input
                             className="col-span-3"
                             id="name"
@@ -107,7 +107,7 @@ export function StoreProfileDialog() {
                     </div>
 
                     <div className="grid grid-cols-4 items-center gap-4">
-                        <Label className="text-right" htmlFor="description">Descrição</Label>
+                        <Label className="text-right" htmlFor="description">Description</Label>
                         <Textarea
                             className="col-span-3"
                             id="description"
@@ -117,9 +117,9 @@ export function StoreProfileDialog() {
                 </div>
                 <DialogFooter>
                     <DialogClose asChild>
-                        <Button variant="ghost" type="button">Cancelar</Button>
+                        <Button variant="ghost" type="button">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" variant="success" disabled={isSubmitting}>Salvar</Button>
+                    <Button type="submit" variant="success" disabled={isSubmitting}>Save</Button>
                 </DialogFooter>
             </form>
         </DialogContent>

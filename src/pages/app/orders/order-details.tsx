@@ -84,13 +84,13 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                                     <TableCell className="text-right">
                                         {(item.priceInCents / 100).toLocaleString('pt-BR', {
                                             style: 'currency',
-                                            currency: 'BRL'
+                                            currency: 'USD'
                                         })}
                                     </TableCell>
                                     <TableCell className="text-right">
                                         {((item.priceInCents * item.quantity) / 100).toLocaleString('pt-BR', {
                                             style: 'currency',
-                                            currency: 'BRL'
+                                            currency: 'USD'
                                         })}
                                     </TableCell>
                                 </TableRow>
@@ -102,7 +102,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                                 <TableCell className="text-right font-medium">
                                     {(order.totalInCents / 100).toLocaleString('pt-BR', {
                                         style: 'currency',
-                                        currency: 'BRL'
+                                        currency: 'USD'
                                     })}
                                 </TableCell>
                             </TableRow>

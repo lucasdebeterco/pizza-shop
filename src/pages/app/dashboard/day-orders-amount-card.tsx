@@ -15,7 +15,7 @@ export function DayOrdersAmountCard() {
         <Card>
             <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-base font-semibold">
-                    Pedidos (dia)
+                    Orders (day)
                 </CardTitle>
                 <DollarSign className="size-4 text-muted-foreground" />
             </CardHeader>
@@ -23,18 +23,16 @@ export function DayOrdersAmountCard() {
                 {dayOrdersAmount ? (
                     <>
                         <span className="text-2xl font-bold tracking-tight">
-                            {dayOrdersAmount.amount.toLocaleString('pr-BR')}
+                            {dayOrdersAmount.amount.toLocaleString('en-US')}
                         </span>
                         <p className="text-xs text-muted-foreground">
                             {dayOrdersAmount.diffFromYesterday >= 0 ? (
                                 <>
-                                    <span className="text-emerald-500 dark:text-emerald-400">{dayOrdersAmount.diffFromYesterday}%</span> em
-                                    relação a ontem
+                                    <span className="text-emerald-500 dark:text-emerald-400">{dayOrdersAmount.diffFromYesterday}%</span> compared to yesterday
                                 </>
                             ) : (
                                 <>
-                                    <span className="text-rose-500 dark:text-rose-400">{dayOrdersAmount.diffFromYesterday}%</span> em
-                                    relação a ontem
+                                    <span className="text-rose-500 dark:text-rose-400">{dayOrdersAmount.diffFromYesterday}%</span> compared to yesterday
                                 </>
                             )}
                         </p>
