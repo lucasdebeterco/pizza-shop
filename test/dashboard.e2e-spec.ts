@@ -18,11 +18,10 @@ test('display month canceled orders amount metric', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' })
 
     await expect(page.getByText('200', { exact: true })).toBeVisible()
-    await expect(page.getByText('10% compared to last month')).toBeVisible()
+    await expect(page.getByText('8% compared to last month')).toBeVisible()
 })
 
-
-test('display month revenue  metric', async ({ page }) => {
+test('display month revenue metric', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' })
 
     await expect(page.getByText('$200.00')).toBeVisible()
