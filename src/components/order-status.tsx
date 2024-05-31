@@ -6,14 +6,6 @@ interface OrderStatusProps {
     status: OrderStatus
 }
 
-const orderStatusMap: Record<OrderStatus, string> = {
-    pending: 'Pendente',
-    canceled: 'Cancelado',
-    processing: 'Em preparo',
-    delivering: 'Em entrega',
-    delivered: 'Entregue'
-}
-
 export function OrderStatus({ status }: OrderStatusProps) {
     return(
         <div className="flex items-center gap-2">
@@ -25,7 +17,7 @@ export function OrderStatus({ status }: OrderStatusProps) {
                 ['delivering', 'processing'].includes(status) && 'bg-amber-500',
             )}></span>
 
-            <span className="font-medium text-muted-foreground">{orderStatusMap[status]}</span>
+            <span className="font-medium capitalize text-muted-foreground">{status}</span>
         </div>
     )
 }

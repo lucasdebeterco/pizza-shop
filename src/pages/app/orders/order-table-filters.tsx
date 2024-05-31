@@ -82,15 +82,15 @@ export function OrderTableFilters() {
     return (
         <form onSubmit={handleSubmit(handleFilter)} className="flex items-center gap-2">
             <span className="text-sm font-semibold">
-                Filtros:
+                Filters:
             </span>
             <Input
-                placeholder="ID do pedido"
+                placeholder="Order ID"
                 className="h-8 w-auto"
                 {...register('orderId')}
             />
             <Input
-                placeholder="Nome do cliente"
+                placeholder="Customer name"
                 className="h-8 w-[320px]"
                 {...register('customerName')}
             />
@@ -118,12 +118,12 @@ export function OrderTableFilters() {
                                 <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="all">Todos os status</SelectItem>
-                                <SelectItem value="pending">Pendente</SelectItem>
-                                <SelectItem value="canceled">Cancelado</SelectItem>
-                                <SelectItem value="processing">Em preparo</SelectItem>
-                                <SelectItem value="delivering">Em entrega</SelectItem>
-                                <SelectItem value="delivered">Entregue</SelectItem>
+                                <SelectItem value="all">All</SelectItem>
+                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="canceled">Canceled</SelectItem>
+                                <SelectItem value="processing">Processing</SelectItem>
+                                <SelectItem value="delivering">Delivering</SelectItem>
+                                <SelectItem value="delivered">Delivered</SelectItem>
                             </SelectContent>
                         </Select>
                     )
@@ -132,12 +132,12 @@ export function OrderTableFilters() {
 
             <Button type="submit" variant="secondary" size="sm">
                 <Search className="mr-2 size-4" />
-                Filtrar resultados
+                Filter
             </Button>
 
             <Button onClick={handleClearFilters} type="button" variant="outline" size="sm">
                 <X className="mr-2 size-4" />
-                Remover Filtros
+                Clear Filters
             </Button>
         </form>
     )
